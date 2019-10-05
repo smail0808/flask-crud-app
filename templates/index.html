@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block title %}
+snackS PAGE
+{% endblock %}
+
+{% block body %}
+<ul class="list-group">
+    {% for snack in snacks  %}
+
+
+    <li class="list-group-item"><a href="{{url_for('show', id=snack.id)}}" style="padding: 0 10px ">{{snack.name}} :
+            {{snack.kind}} </a> <a href="{{url_for('edit', id=snack.id)}}">Update</a> <a href="">
+            <form action="{{url_for('show', id=snack.id)}}?_method=DELETE" method="POST">
+                <input type="submit" value="X">
+            </form>
+        </a>
+
+    </li>
+
+    {% endfor %}
+</ul>
+
+{% endblock %}
